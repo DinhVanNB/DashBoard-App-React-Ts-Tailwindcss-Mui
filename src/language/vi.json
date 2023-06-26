@@ -1,0 +1,16 @@
+{
+    "Validation":
+        {
+            "required": "${path} không được để trống",
+            "length": "${path} phải đúng ${length} ký tự",
+            "minLength": "${path} phải từ ${min} ký tự trở lên",
+            "maxLength": "${path} phải ít hơn ${max} ký tự",
+            "match": "${path} không hợp lệ",
+            "comfirm": "${path} nhập lại không đúng",
+            "min": "${path} giá trị nhỏ nhất không dưới ${min}",
+            "max":"${path} giá trị lớn nhất không quá ${max}",
+            "lessThan": "${path} phải nhỏ hơn ${less}",
+            "moreThan": "${path} phải lớn hơn ${more}",
+            "type":"${path} không đúng kiểu ký tự"
+        }
+}

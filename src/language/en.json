@@ -1,0 +1,16 @@
+{
+    "Validation":
+        {
+            "required": "${path} is required",
+            "length": "${path} must length are ${length} characters",
+            "minLength": "${path} more than ${min} characters",
+            "maxLength": "${path} less than ${max} characters",
+            "match": "${path} not correct standard",
+            "comfirm": "${path} not match",
+            "min": "${path} min is ${min}",
+            "max":"${path} max is ${max}",
+            "lessThan": "${path} less than ${less}",
+            "moreThan": "${path} more than ${more}",
+            "type":"${path} not correct type"
+        }
+}

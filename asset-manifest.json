@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/css/main.3d5ce818.css",
-    "main.js": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/js/main.cdeebb89.js",
+    "main.js": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/js/main.8943a0ad.js",
     "static/media/logo-chart.png": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/media/logo-chart.ec35ec30f88f115359a8.png",
     "index.html": "/DashBoard-App-React-Ts-Tailwindcss-Mui/index.html",
     "main.3d5ce818.css.map": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/css/main.3d5ce818.css.map",
-    "main.cdeebb89.js.map": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/js/main.cdeebb89.js.map"
+    "main.8943a0ad.js.map": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/js/main.8943a0ad.js.map"
   },
   "entrypoints": [
     "static/css/main.3d5ce818.css",
-    "static/js/main.cdeebb89.js"
+    "static/js/main.8943a0ad.js"
   ]
 }

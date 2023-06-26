@@ -25,8 +25,7 @@ export default function TableUsers(){
     const [reload, setReload] = useState(false);
     const dispatch  = useDispatch();
     const navigate = useNavigate();
-    const paramsURL: string = window.location.search
-
+    const paramsURL: string = '?'+searchParams.toString()
 
     useEffect(()=>{
         searchParams.get('keyWord')? 

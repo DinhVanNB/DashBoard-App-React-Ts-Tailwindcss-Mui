@@ -8,14 +8,17 @@ import userApi from "../../api/userApi"
 import {useEffect} from 'react'
 import UserProfile from "./UserProfile";
 import UserDetails from "./UserDetails";
+import { useSearchParams } from "react-router-dom";
 
 
 
 export default function UserInfo(){
+    const [searchParams] =useSearchParams()
+    const paramsSearch:string = '?' + searchParams.toString()
     useEffect(()=>{ 
-        handleGetUser(window.location.search)
+        handleGetUser(paramsSearch)
         // eslint-disable-next-line 
-    },[window.location.search])
+    },[paramsSearch])
 
     const dispatch = useDispatch();
     const {language} = useSelector((state:RootState)=>state.appState)

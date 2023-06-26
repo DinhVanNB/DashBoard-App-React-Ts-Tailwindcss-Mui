@@ -18,14 +18,15 @@ export default function MultiBlogs(){
     const {posts} = useSelector((state:RootState)=>state.post);
     const {userLogin} = useSelector((state:RootState)=>state.user);
     const [reload, setReload] = useState(false);
-   
+    const paramsSearch:string= '?' + searchParams.toString() 
+
 
     useEffect(()=>{ 
-      handleGetPosts(window.location.search)
+      handleGetPosts(paramsSearch)
       setCurrentPage(Number(searchParams.get('page')||0)+1)
       setOrder(searchParams.get('order')||'desc')
       // eslint-disable-next-line
-    },[window.location.search, posts?.data?.length, reload])
+    },[paramsSearch, posts?.data?.length, reload])
 
     const handleChangePage = ({target}:React.ChangeEvent<unknown>,value:number) => {
         navigate(`${routes.blog.path}?page=${value-1}&pageSize=5&orderBy=createdAt&order=${order}`)

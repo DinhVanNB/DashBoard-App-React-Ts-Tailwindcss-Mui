@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter, createHashRouter } from "react-router-dom"
 import AuthLayout from "../layouts/AuthLayout"
 import MainLayout from "../layouts/MainLayout"
 import LoginPage from "../pages/LoginPage"
@@ -42,7 +42,7 @@ export const routes= {
 }
 
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
     {
         path:'/',
         element: <MainLayout/>,

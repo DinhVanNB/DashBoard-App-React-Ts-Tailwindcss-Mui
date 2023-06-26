@@ -9,8 +9,11 @@ import reviewApi from "../../api/reviewApi";
 import {  REACT_APP_PUBLIC_URL, SendIcon } from "../../configs/constant";
 import { routes } from "../../configs/routes";
 import { themeOptions } from "../../themes/theme";
+import BlogInterac from "./BlogInterac";
+import ViewBlog from "./ViewBlog";
 
 const SingleBlog =({post , reload ,setReload,handleDeletePost,  handleToggleLike}:any)=>{
+    // eslint-disable-next-line
     const theme = useTheme();
     const {userLogin, isLogin} = useSelector((state:RootState)=>state.user)
     const [comment, setComment] = useState('');
@@ -20,18 +23,23 @@ const SingleBlog =({post , reload ,setReload,handleDeletePost,  handleToggleLike
     const dispatch = useDispatch();
     
     const handleCreateComment =async()=>{
-        if(comment==='') return
-        dispatch(setLoading(true))
-        const data ={
-            userId: userLogin?.id,
-            postId: post?.id,
-            comment
+        try{
+            if(comment==='') return
+            dispatch(setLoading(true))
+            const data ={
+                userId: userLogin?.id,
+                postId: post?.id,
+                comment
+            }
+            const {status, result} = await reviewApi.onCreate(data);
+            if(result?.data?.transaction && result?.data?.transaction !=='') dispatch(setAccessToken(result.data.transaction));
+            if(status>300) dispatch(setAppToast({status, message: result.message}));
+            if(status<300) {  setComment(''); setReload((prev:boolean)=>!prev)  }
+            dispatch(setLoading(false))
         }
-        const {status, result} = await reviewApi.onCreate(data);
-        if(result?.data?.transaction && result?.data?.transaction !=='') dispatch(setAccessToken(result.data.transaction));
-        if(status>300) dispatch(setAppToast({status, message: result.message}));
-        if(status<300) {  setComment(''); setReload((prev:boolean)=>!prev)  }
-        dispatch(setLoading(false))
+        catch(e){
+            dispatch(setLoading(false))
+        }
     };
 
     const handleChange= ({target}:React.ChangeEvent<HTMLInputElement>)=>{
@@ -63,11 +71,11 @@ const SingleBlog =({post , reload ,setReload,handleDeletePost,  handleToggleLike
                         {moment(`${new Date(post?.createdAt).toISOString()}`).fromNow()}
                     <Typography  variant='subtitle2' > { new Date(post?.createdAt).toLocaleTimeString() + ' '+ new Date(post?.createdAt).toDateString()}</Typography>
                     </Box>
-                    {/* <BlogInterac
+                    <BlogInterac
                         handleLike={handleLike}
                         views={post?.reviews?.length || 0}
                         like={post?.like}
-                    /> */}
+                    />
                 </Stack>
             </BoxStyled>
             <Dialog 
@@ -78,7 +86,7 @@ const SingleBlog =({post , reload ,setReload,handleDeletePost,  handleToggleLike
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                {/* <BlogView  handleDeletePost={handleDeletePost} setOpenDialog={()=>setOpenDialog(false)} reload={reload}  post={post}/> */}
+                <ViewBlog  handleDeletePost={handleDeletePost} setOpenDialog={setOpenDialog} reload={reload}  post={post}/>
                 {
                     isLogin && 
                     <DialogActions sx={{ margin: 0, background: '#f5f5f5', justifyContent:'space-between'}} >

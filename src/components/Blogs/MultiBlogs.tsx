@@ -33,12 +33,18 @@ export default function MultiBlogs(){
     };
 
     const handleGetPosts=async(params:string)=>{
-      dispatch(setLoading(true))
-      const {status, result}= await postApi.onGetPosts(params);
-      if(result?.data?.transaction && result?.data?.transaction !=='') dispatch(setAccessToken(result.data.transaction));
-      if(status>300) dispatch(setAppToast({status, message: result.message}));
-      if(status<300) dispatch(fetchAllPosts(result?.data))
-      dispatch(setLoading(false))
+        try{
+            dispatch(setLoading(true))
+            const {status, result}= await postApi.onGetPosts(params);
+            if(result?.data?.transaction && result?.data?.transaction !=='') dispatch(setAccessToken(result.data.transaction));
+            if(status>300) dispatch(setAppToast({status, message: result.message}));
+            if(status<300) dispatch(fetchAllPosts(result?.data))
+            dispatch(setLoading(false))
+        }
+        catch(e){
+            dispatch(setAppToast({message:`Connect error!!`, status:403}))
+        }
+    
     };
     
     const onHanldeSort =(e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -46,24 +52,34 @@ export default function MultiBlogs(){
     };
 
     const handleToggleLike = async(post:any)=>{
-      const data ={
-          userId: userLogin?.id,
-          userName: userLogin.firstName + ' ' + userLogin.lastName,
-          postId: post?.id,
-      };
-      const {status, result} = await postApi.onToggleLike(data);
-      if(result?.data?.transaction && result?.data?.transaction !=='') dispatch(setAccessToken(result.data.transaction));
-      if(status>300) dispatch(setAppToast({status, message: result.message}));
-      if(status<300) {   setReload(prev=>!prev)  }
+        try{
+            const data ={
+                userId: userLogin?.id,
+                userName: userLogin.firstName + ' ' + userLogin.lastName,
+                postId: post?.id,
+            };
+            const {status, result} = await postApi.onToggleLike(data);
+            if(result?.data?.transaction && result?.data?.transaction !=='') dispatch(setAccessToken(result.data.transaction));
+            if(status>300) dispatch(setAppToast({status, message: result.message}));
+            if(status<300) {   setReload(prev=>!prev)  }
+        }
+        catch(e){
+
+        }
     };
 
     const handleDeletePost =async(postId:string)=>{
-      dispatch(setLoading(true))
-      const {status, result}= await postApi.onDeletePost({postId});
-      if(result?.data?.transaction && result?.data?.transaction !=='') dispatch(setAccessToken(result.data.transaction));
-       dispatch(setAppToast({status, message: result.message}));
-      if(status<300) {navigate(`${routes.blog.path}?page=0&pageSize=5&orderBy=createdAt&order=${order}`);setReload(prev=>!prev)}
-      dispatch(setLoading(false))
+        try{
+            dispatch(setLoading(true))
+            const {status, result}= await postApi.onDeletePost({postId});
+            if(result?.data?.transaction && result?.data?.transaction !=='') dispatch(setAccessToken(result.data.transaction));
+             dispatch(setAppToast({status, message: result.message}));
+            if(status<300) {navigate(`${routes.blog.path}?page=0&pageSize=5&orderBy=createdAt&order=${order}`);setReload(prev=>!prev)}
+            dispatch(setLoading(false))
+        }
+        catch(e){
+            dispatch(setLoading(false))
+        }
     }
 
 

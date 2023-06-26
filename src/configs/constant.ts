@@ -26,6 +26,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {  Edit, MoreVert } from "@mui/icons-material";
 import Add from '@mui/icons-material/Add';
 import SendIcon from '@mui/icons-material/Send';
+import CloseIcon from '@mui/icons-material/Close';
+import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 //icon
 
 export {
@@ -56,7 +60,11 @@ export {
     Edit,
     MoreVert,
     Add,
-    SendIcon
+    SendIcon,
+    CloseIcon,
+    SmsOutlinedIcon,
+    ThumbUpOutlinedIcon,
+    ExpandMoreIcon
 }
 
 //logo

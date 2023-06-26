@@ -49,6 +49,7 @@ const FormLogin =()=>{
         }
         catch(e){
             dispatch(setAppToast({message:`Can't connect to server`, status:403}))
+            dispatch(setLoading(false))
         }
     }
 
@@ -61,6 +62,7 @@ const FormLogin =()=>{
         }
         catch(e){
             dispatch(setAppToast({message:`Connect error!!`, status:403}))
+            dispatch(setLoading(false))
         }
     }
 

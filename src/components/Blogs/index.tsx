@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Add } from "../../configs/constant";
 import MultiBlogs from "./MultiBlogs";
+import AddNewBlog from "./AddNewBlog";
 
 export default function Blogs(){
     const [openModal, setOpenModal] = useState(false)
@@ -37,11 +38,11 @@ export default function Blogs(){
             </Stack>
             <Dialog 
                 open={openModal}
-                onClose={()=>setOpenModal(false)}
+                // onClose={()=>setOpenModal(false)}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-               {/* <AddBlog setOpenModal={setOpenModal}/> */}
+               <AddNewBlog setOpenModal={setOpenModal}/>
             </Dialog>
         </>
     )

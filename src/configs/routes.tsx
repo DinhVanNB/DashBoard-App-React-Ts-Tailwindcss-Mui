@@ -1,4 +1,4 @@
-import { createBrowserRouter, createHashRouter } from "react-router-dom"
+import {  createHashRouter } from "react-router-dom"
 import AuthLayout from "../layouts/AuthLayout"
 import MainLayout from "../layouts/MainLayout"
 import LoginPage from "../pages/LoginPage"
@@ -8,6 +8,7 @@ import HomePage from "../pages/HomePage"
 import UsersPage from "../pages/UsersPage"
 import UserInfoPage from "../pages/UserInfoPage"
 import BlogsPage from "../pages/BlogsPage"
+import CalenderPage from "../pages/CalenderPage"
 
  
 export const routes= {
@@ -37,7 +38,7 @@ export const routes= {
     },
     calender:{
         path:'/calender',
-        element:<>calender</>
+        element:<Protected><CalenderPage/></Protected>
     }
 }
 

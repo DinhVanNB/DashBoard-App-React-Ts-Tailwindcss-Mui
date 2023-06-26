@@ -9,7 +9,7 @@ import DeleteDialog from './DeleteDialog';
 interface propsType{
     user:any
     handleDelete:(id:string)=>void
-    handleEdit:(data:object)=>void
+    handleEdit:(data:object)=>Promise<void>
 }
 
 export default function ActionCell({user, handleDelete, handleEdit}:propsType){
@@ -59,7 +59,7 @@ export default function ActionCell({user, handleDelete, handleEdit}:propsType){
             </Menu>
             <Dialog 
                 open={openModal.isOpen}
-                onClose={()=>setOpenModal({type:'',isOpen:false})}
+                // onClose={()=>setOpenModal({type:'',isOpen:false})}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >

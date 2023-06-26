@@ -34,16 +34,29 @@ const FormRegister =()=>{
     })
 
     const hanldeRegister = async(data:{}) =>{
-        dispatch(setLoading(true))
-        const {status, result} = await userApi.onRegister(data);
-        dispatch(setAppToast({status, message: result.message}));
-        status===201 && resetForm();
-        dispatch(setLoading(false))
+        try{
+            dispatch(setLoading(true))
+            const {status, result} = await userApi.onRegister(data);
+            dispatch(setAppToast({status, message: result.message}));
+            status===201 && resetForm();
+            dispatch(setLoading(false))
+        }
+        catch(e){
+            dispatch(setAppToast({message:`Connect error!!`, status:403}))
+            dispatch(setLoading(false))
+        }
+    
+       
     };
 
     const handleCheckMail = async(data:object)=>{
-        const {result} = await userApi.onCheckExistEmail(data);
-        setErrors({...errors,email:result.message})
+        try{
+            const {result} = await userApi.onCheckExistEmail(data);
+            setErrors({...errors,email:result.message})
+        }
+        catch(e){
+            
+        }
     };
 
     return(

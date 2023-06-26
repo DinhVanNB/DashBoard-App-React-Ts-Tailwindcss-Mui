@@ -45,6 +45,7 @@ export default function TableUsers(){
         }
         catch(e){
             dispatch(setAppToast({message:`Connect error!!`, status:403}))
+            dispatch(setLoading(false))
         }
     }
 
@@ -59,6 +60,7 @@ export default function TableUsers(){
         }
         catch(e){
             dispatch(setAppToast({message:`Connect error!!`, status:403}))
+            dispatch(setLoading(false))
         }
     }
 
@@ -96,6 +98,7 @@ export default function TableUsers(){
         }
         catch(e){
             dispatch(setAppToast({message:`Connect error!!`, status:403}))
+            dispatch(setLoading(false))
         }
     };
 
@@ -110,6 +113,7 @@ export default function TableUsers(){
         }
         catch(e){
             dispatch(setAppToast({message:`Connect error!!`, status:403}))
+            dispatch(setLoading(false))
         }
     };
 
@@ -126,6 +130,7 @@ export default function TableUsers(){
         }
         catch(e){
             dispatch(setAppToast({message:`Connect error!!`, status:403}))
+            dispatch(setLoading(false))
         }
     };
 

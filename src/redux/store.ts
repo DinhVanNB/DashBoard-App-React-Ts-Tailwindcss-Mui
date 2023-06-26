@@ -6,6 +6,7 @@ import userSlice from "./userSlice";
 import { REACT_APP_KEY_SERECT_PERSIST } from "../configs/constant";
 import appSlice from "./appSlice";
 import postSlice from "./postSlice";
+import calenderSlice from "./calenderSlice";
 
 
 const persistConfig  = {
@@ -24,7 +25,8 @@ const persistConfig  = {
 const rootReducers = combineReducers({
     user: userSlice,
     appState: appSlice,
-    post: postSlice
+    post: postSlice,
+    calenderApp: calenderSlice
 
 })
 

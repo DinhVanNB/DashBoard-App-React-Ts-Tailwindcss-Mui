@@ -13,17 +13,19 @@ import {
     Grid,
     Typography,
     Box,
-    TextField
+    TextField,
+    IconButton
   } from '@mui/material';
 import useValidate from '../../hooks/useValidate';
 import { setAppToast } from '../../redux/appSlice';
 import validateSchema from '../../utils/validate/validateSchema';
+import { CloseIcon } from '../../configs/constant';
 
 
 interface propsType{
     user:any
     setOpenModal:React.Dispatch<React.SetStateAction<{type:string,isOpen:boolean}>>
-    handleEdit:(data:object)=>void
+    handleEdit:(data:object)=>Promise<void>
 }
 
 const EditDialog = ({user,setOpenModal,handleEdit}:propsType) => {
@@ -47,8 +49,14 @@ const EditDialog = ({user,setOpenModal,handleEdit}:propsType) => {
     return (
       <form id='dialogEdit' onSubmit={handleSubmit} >
         <Card>
-          <CardHeader subheader="The information can be edit" title="Edit user"/>
-          <CardContent sx={{ pt: 0 }}>
+            <Stack direction='row' justifyContent='space-between' alignItems='center'>
+                <CardHeader subheader="The information can be edit" title="Edit user"/>
+                <IconButton sx={{mr:2}} onClick={()=>setOpenModal({type:'',isOpen:false})} >
+                    <CloseIcon/>
+                </IconButton>
+            </Stack>
+          
+            <CardContent sx={{ pt: 0 }}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
                       <InputLabel htmlFor="firstname-edit">First Name</InputLabel>

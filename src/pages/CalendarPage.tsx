@@ -1,7 +1,8 @@
 import { Box, Stack, Typography } from "@mui/material";
 import HelmetTitle from "../components/HelmetTitle";
+import Calendar from "../components/Calendar";
 
-export default function CalenderPage(){
+export default function CalendarPage(){
 
     return(
         <>
@@ -18,7 +19,7 @@ export default function CalenderPage(){
                     </Stack>
                 </Stack>
                 <Box mt='16px' p='8px'>
-                    {/* <Calendar/> */}
+                    <Calendar/>
                 </Box>
             </Stack>
         </>

@@ -43,6 +43,7 @@ export default function MultiBlogs(){
         }
         catch(e){
             dispatch(setAppToast({message:`Connect error!!`, status:403}))
+            dispatch(setLoading(false))
         }
     
     };

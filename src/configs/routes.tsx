@@ -8,8 +8,7 @@ import HomePage from "../pages/HomePage"
 import UsersPage from "../pages/UsersPage"
 import UserInfoPage from "../pages/UserInfoPage"
 import BlogsPage from "../pages/BlogsPage"
-import CalenderPage from "../pages/CalenderPage"
-
+import CalendarPage from "../pages/CalendarPage"
  
 export const routes= {
     dashboard:{
@@ -38,7 +37,7 @@ export const routes= {
     },
     calender:{
         path:'/calender',
-        element:<Protected><CalenderPage/></Protected>
+        element:<Protected><CalendarPage/></Protected>
     }
 }
 

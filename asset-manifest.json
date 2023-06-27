@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/css/main.3d5ce818.css",
-    "main.js": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/js/main.be920e58.js",
+    "main.css": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/css/main.765594ba.css",
+    "main.js": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/js/main.eac9ae3f.js",
     "static/media/logo-chart.png": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/media/logo-chart.ec35ec30f88f115359a8.png",
     "index.html": "/DashBoard-App-React-Ts-Tailwindcss-Mui/index.html",
-    "main.3d5ce818.css.map": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/css/main.3d5ce818.css.map",
-    "main.be920e58.js.map": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/js/main.be920e58.js.map"
+    "main.765594ba.css.map": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/css/main.765594ba.css.map",
+    "main.eac9ae3f.js.map": "/DashBoard-App-React-Ts-Tailwindcss-Mui/static/js/main.eac9ae3f.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d5ce818.css",
-    "static/js/main.be920e58.js"
+    "static/css/main.765594ba.css",
+    "static/js/main.eac9ae3f.js"
   ]
 }

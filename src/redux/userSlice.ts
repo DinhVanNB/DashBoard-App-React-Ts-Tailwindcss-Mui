@@ -31,8 +31,9 @@ const userSlice = createSlice({
         },
         toggleRemember:(state)=>{
             const {isRemember} = current(state)
+            state.userLogin={}
             state.isRemember = !isRemember 
-            state.userLogin={id:''}
+            
         },
         fetchUserInfo: (state,action) =>{
             state.singleUser = action.payload
